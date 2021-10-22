@@ -33,9 +33,21 @@ drawTitle() {
 }
 
 
-# Use all cores for compilation.
-# sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
 
+
+
+export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":wheel "$(dirname "$repodir")"
+
+
+## Tasks
+
+# Various system tweaks
+drawTitle "System Tweaks"
+# Use all cores for compilation.
+sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+# Pacman config
+grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf || error "Failed to enable ILoveCandy"
+sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf || error "Failed to enable Parallel Downloads and color"
 
 # make sure we have the bare minimum
 for x in curl ca-certificates base-devel git ntp fish figlet; do
@@ -43,18 +55,9 @@ for x in curl ca-certificates base-devel git ntp fish figlet; do
   installpkg "$x"
 done
 
-export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":wheel "$(dirname "$repodir")"
-
-
-## Tasks
-
 # Set default shell
 drawTitle "Change Shell"
 chsh -s /usr/bin/fish "$name" 2>&1
-
-# Pacman config
-grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf || error "Failed to enable ILoveCandy"
-sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf || error "Failed to enable Parallel Downloads and color"
 
 # Install yay/paru
 drawTitle "Install ${aurhelper}"
@@ -65,6 +68,7 @@ drawTitle "Install ${aurhelper}"
 # Install nvim setup
 
 # Install dotfiles
+drawTitle "Cloning Dotfiles"
 git clone $dotfilesrepo /home/$name/dotfiles
 
 # Create ~/.local/bin/* dirs
