@@ -28,14 +28,11 @@ sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /et
 
 
 
-
-
-declare -a archpackages=(
-    "alacritty-git"
-    "dialog"
-    "git"
-)
-
+# make sure we have the bare minimum
+for x in curl ca-certificates base-devel git ntp; do
+	dialog --title "Auto Installation" --infobox "Installing \`$x\` which is required to install and configure other programs." 5 70
+	installpkg "$x"
+done
 
 ## Tasks
 
@@ -44,11 +41,6 @@ declare -a archpackages=(
 # Enable AUR repos
 
 # Install Pacman packages
-for package in "${archpackages[@]}"
-do
-   : 
-   installpkg $package
-done
 
 # Install AUR packages
 
@@ -65,3 +57,7 @@ done
 # Install docker
 
 # Setup permissions
+
+# Non packaged programs:
+# zathura pywal
+# Gnuplot pywal
