@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-#[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/lukesmithxyz/voidrice.git"
+[ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/GideonWolfe/dots.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/GideonWolfe/arch-bootstrap/master/progs.csv"
 [ -z "$aurhelper" ] && aurhelper="paru"
 [ -z "$repobranch" ] && repobranch="master"
@@ -32,10 +32,6 @@ drawTitle() {
   figlet $1
 }
 
-# Pacman config
-# Make pacman colorful, concurrent downloads and Pacman eye-candy.
-# grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf || error "Failed to enable ILoveCandy"
-# sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf || error "Failed to enable Parallel Downloads and color"
 
 # Use all cores for compilation.
 # sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
@@ -56,6 +52,10 @@ export repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":w
 drawTitle "Change Shell"
 chsh -s /usr/bin/fish "$name" 2>&1
 
+# Pacman config
+grep -q "ILoveCandy" /etc/pacman.conf || sed -i "/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf || error "Failed to enable ILoveCandy"
+sed -i "s/^#ParallelDownloads = 8$/ParallelDownloads = 5/;s/^#Color$/Color/" /etc/pacman.conf || error "Failed to enable Parallel Downloads and color"
+
 # Install yay/paru
 drawTitle "Install ${aurhelper}"
 #manualinstall paru || error "Failed to installAUR Helper"
@@ -64,7 +64,8 @@ drawTitle "Install ${aurhelper}"
 
 # Install nvim setup
 
-# Install dotdrop
+# Install dotfiles
+git clone $dotfilesrepo /home/$name/dotfiles
 
 # Create ~/.local/bin/* dirs
 
