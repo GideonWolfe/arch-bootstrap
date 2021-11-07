@@ -158,7 +158,7 @@
 ,gping,"graphical ping"
 ,ufw,"uncomplicated firewall"
 ,gufw,"graphical frontend for ufw"
-,gnome-disks,"partition manager"
+,gnome-disk-utility,"partition manager"
 ,gparted,"partition manager"
 ,vlc,"full featured media player"
 ,xdg-user-dirs,"allows changing default dirs"
