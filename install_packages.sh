@@ -97,4 +97,9 @@ for x in curl ca-certificates base-devel git ntp fish figlet python-pip npm; do
   installpkgsilent "$x"
 done
 
+
+drawTitle "Install ${aurhelper}"
+manualinstall paru || error "Failed to installAUR Helper"
+
+
 installationloop2
