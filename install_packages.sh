@@ -4,7 +4,7 @@ set -o errtrace
 
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/GideonWolfe/dots.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/GideonWolfe/arch-bootstrap/master/progs.csv"
-[ -z "$aurhelper" ] && aurhelper="paru"
+[ -z "$aurhelper" ] && aurhelper="paru-bin"
 [ -z "$repobranch" ] && repobranch="master"
 [ -z "$wallpaperrepo" ] && wallpaperrepo="https://github.com/GideonWolfe/wallpapers.git"
 [ -z "$name" ] && name="gideon"
@@ -102,6 +102,6 @@ done
 
 
 drawTitle "Install ${aurhelper}"
-manualinstall paru
+manualinstall $aurhelper
 
 installationloop
