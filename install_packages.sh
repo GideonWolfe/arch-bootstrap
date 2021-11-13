@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -o errtrace
 
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/GideonWolfe/dots.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/GideonWolfe/arch-bootstrap/master/progs.csv"
