@@ -47,7 +47,8 @@ manualinstall() {
 	sudo -u "$name" mkdir -p "$repodir/$1"
 	#sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$repodir/$1" >/dev/null 2>&1 ||
 	sudo -u "$name" git clone --depth 1 "https://aur.archlinux.org/$1.git" "$repodir/$1" 2>&1 ||
-		{ cd "$repodir/$1" || return 1 ; sudo -u "$name" git pull --force origin master;}
+		# { cd "$repodir/$1" || return 1 ; sudo -u "$name" git pull --force origin master;}
+		{ cd "$repodir/$1" ; sudo -u "$name" git pull --force origin master;}
 	cd "$repodir/$1"
 	# sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si >/dev/null 2>&1 || return 1
   # sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si 2>&1 || return 1
