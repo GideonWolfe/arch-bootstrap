@@ -36,15 +36,15 @@ sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
 
 # Set default shell
 drawTitle "Change Shell"
-# chsh -s /usr/bin/fish "$name" 2>&1
+chsh -s /usr/bin/fish "$name" 2>&1
 
 # Install dotfiles
 drawTitle "Cloning Dotfiles"
-# git clone $dotfilesrepo /home/$name/dotfiles
+git clone $dotfilesrepo /home/$name/dotfiles
 
 # Setup docker
-# drawTitle "Docker Setup"
-# usermod -aG docker $name
+drawTitle "Docker Setup"
+usermod -aG docker $name
 
 # Setup permissions
 
@@ -60,22 +60,22 @@ sudo -u "$name" mkdir -p "/home/$name/.local/bin/"
 
 # Install nvim setup
 drawTitle "Downloading NeoVim config"
-# sudo -u "$name" git clone https://github.com/GideonWolfe/nvim-lua/ "/home/$name/programs/nvim-lua"
+sudo -u "$name" git clone https://github.com/GideonWolfe/nvim-lua/ "/home/$name/programs/nvim-lua"
 
 # Download wallpapers
 drawTitle "Downloading Wallpapers"
-# sudo -u "$name" git clone $wallpaperrepo "/home/$name/photos/wallpapers"
+sudo -u "$name" git clone $wallpaperrepo "/home/$name/photos/wallpapers"
 
 # Enable services
-# drawTitle "Enabling Services"
-# systemctl enable lightdm
-# systemctl enable NetworkManager
-# systemctl enable bluetooth
-# systemctl enable docker
-# systemctl enable containerd
-# systemctl enable sshd
-# systemctl enable ckb-next-daemon
-# systemctl enable cups
+drawTitle "Enabling Services"
+systemctl enable lightdm
+systemctl enable NetworkManager
+systemctl enable bluetooth
+systemctl enable docker
+systemctl enable containerd
+systemctl enable sshd
+systemctl enable ckb-next-daemon
+systemctl enable cups
 
 # Sync time
 timedatectl set-ntp true
