@@ -102,6 +102,7 @@ done
 
 
 drawTitle "Install ${aurhelper}"
+mkdir -p $repodir
 manualinstall $aurhelper
 
 installationloop
