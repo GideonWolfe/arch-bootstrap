@@ -50,7 +50,8 @@ manualinstall() {
 		{ cd "$repodir/$1" || return 1 ; sudo -u "$name" git pull --force origin master;}
 	cd "$repodir/$1"
 	# sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si >/dev/null 2>&1 || return 1
-  sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si 2>&1 || return 1
+  # sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si 2>&1 || return 1
+  sudo -u "$name" -D "$repodir/$1" makepkg --noconfirm -si
 }
 
 installationloop() { \
