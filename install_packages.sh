@@ -101,7 +101,6 @@ done
 
 
 drawTitle "Install ${aurhelper}"
-manualinstall paru || error "Failed to installAUR Helper"
-
+manualinstall paru
 
 installationloop
