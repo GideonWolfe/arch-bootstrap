@@ -89,7 +89,11 @@ sh /home/$name/programs/Zathura-Pywal/install.sh
 
 # Gnuplot pywal
 
-
-
 # Set Wallpaper
 wal -i /home/$name/photos/wallpapers/gw9TTta.jpg
+
+# Instruct slick-greeter to use this wallpaper
+cat <<EOT >> /etc/lightdm/slick-greeter.conf
+[Greeter]
+background=/usr/share/wallpapers/wal
+EOT
