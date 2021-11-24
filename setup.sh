@@ -97,3 +97,7 @@ cat <<EOT >> /etc/lightdm/slick-greeter.conf
 [Greeter]
 background=/usr/share/wallpapers/wal
 EOT
+
+
+drawTitle "Installing Dotfiles"
+dotdrop --cfg=/home/$name/dotfiles/config.yaml install laptop
