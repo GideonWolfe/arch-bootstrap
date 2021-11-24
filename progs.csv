@@ -73,6 +73,7 @@
 ,inetutils,"network utilities"
 ,iotop,"IO monitor"
 ,jdk-openjdk,"OpenJDK"
+,java-runtime-common,"archlinux-java among other utils"
 ,jnettop,"Network monitor"
 ,jnettop,"Network monitor"
 ,jq,"JSON parser"
