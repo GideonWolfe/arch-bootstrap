@@ -33,6 +33,8 @@ sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 8/;s/^#Color$/Color/" /et
 sed -i "s/^#VerbosePkgLists/VerbosePkgLists/" /etc/makepkg.conf
 # Enable multilib
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /etc/pacman.conf
+# Enable desired lightdm greeter
+sed -i '/^\[Seat:\*\]$/,/\[/s/^#greeter-session=$/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
 
 # Set default shell
 drawTitle "Change Shell"
