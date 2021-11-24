@@ -21,7 +21,7 @@ installpkg(){ pacman --noconfirm --needed -S "$1" 2>&1 ;}
 # Install aur package
 aurinstall() { \
 	# echo "$aurinstalled" | grep -q "^$1$" && return 1
-  echo "[AUR] Installing " "$1"
+  echo "[AUR] Installing " "$1" ":" "$2"
   echo $1
 	# sudo -u "$name" $aurhelper -S --noconfirm "$1" >/dev/null 2>&1
 	sudo -u "$name" $aurhelper -S --noconfirm "$1"
@@ -29,13 +29,14 @@ aurinstall() { \
 # Install python package
 pipinstall() { \
 	[ -x "$(command -v "pip")" ] || installpkg python-pip >/dev/null 2>&1
+  echo "[Pip] Installing " "$1" ":" "$2"
 	yes | pip install "$1"
 }
 # Install node package
 npminstall() { \
 	[ -x "$(command -v "npm")" ] || installpkg npm >/dev/null 2>&1
 	#npm install "$1"
-  echo INSTALLING NPM PACKAGE
+  echo "[NPM] Installing " "$1" ":" "$2"
 	npm -g install "$1"
 }
 
