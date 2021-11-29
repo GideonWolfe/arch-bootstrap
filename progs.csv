@@ -16,6 +16,7 @@
 ,ntfs-3g,"allows accessing NTFS partitions."
 ,unrar,"extracts rar's."
 ,unzip,"unzips zips."
+,umbrello,"UML modeller."
 ,zip,"zip"
 ,xclip,"allows for copying and pasting from the command line."
 ,xdotool,"provides window action utilities on the command line."
