@@ -89,6 +89,10 @@ sh /home/$name/programs/Zathura-Pywal/install.sh
 
 # Gnuplot pywal
 
+# cmus notify
+sudo -u "$name" git clone "https://github.com/dcx86r/cmus-notify" "/home/$name/programs/"
+sh /home/$name/programs/cmus-notify/installer.sh install
+
 # Set Wallpaper
 wal -i /home/$name/photos/wallpapers/gw9TTta.jpg
 
@@ -101,3 +105,7 @@ EOT
 
 drawTitle "Installing Dotfiles"
 dotdrop --cfg=/home/$name/dotfiles/config.yaml install laptop
+
+
+# Install cmus-notify
+# https://github.com/karan/joe get this, is there a package?
