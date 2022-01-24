@@ -89,6 +89,21 @@ sh /home/$name/programs/Zathura-Pywal/install.sh
 
 # Gnuplot pywal
 
+# Spicetify: god hopes it actually works
+sudo -u "$name" git clone "https://github.com/morpheusthewhite/spicetify-themes" "/home/$name/programs/"
+sudo -u "$name" cp -r "/home/$name/programs/spicetify-themes/Sleek/" "/home/$name/.config/spicetify/Themes/Sleek/"
+# should be cached template spicetify_sleek.ini need to symlink to Themes/Sleek/color.ini
+rm "/home/$name/.config/spicetify/Themes/Sleek/color.ini"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/spicetify_sleek.ini" "/home/$name/.config/spicetify/Themes/Sleek/color.ini"
+# Do directory permissions https://github.com/khanhas/spicetify-cli/wiki/Installation#spotify-installed-from-aur
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+# actually apply it
+spicetify config current_theme Sleek
+spicetify config color_scheme Pywal
+spotify backup apply
+
+
 # cmus notify
 sudo -u "$name" git clone "https://github.com/dcx86r/cmus-notify" "/home/$name/programs/"
 sh /home/$name/programs/cmus-notify/installer.sh install
