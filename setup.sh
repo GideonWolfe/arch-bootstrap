@@ -122,5 +122,20 @@ drawTitle "Installing Dotfiles"
 dotdrop --cfg=/home/$name/dotfiles/config.yaml install laptop
 
 
+# Symlink generated pywal files to their final locations
+sudo -u "$name" ln -s "/home/$name/.cache/wal/cava_config /home/$name/.config/cava/config"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/bashtop_pywal.theme /home/$name/.config/bashtop/user_themes/bashtop_pwal.theme"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/dunstrc /home/$name/.config/dunst/dunstrc"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/flameshot.conf /home/$name/.config/flameshot/flameshot.conf"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/fzf.fish /home/$name/.config/fish/functions/fzf.fish"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_bars.glsl /home/$name/.config/glava/bars.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_circle.glsl /home/$name/.config/glava/circle.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_graph.glsl /home/$name/.config/glava/graph.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_main.glsl /home/$name/.config/glava/rc.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_radial.glsl /home/$name/.config/glava/radial.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_wave.glsl /home/$name/.config/glava/wave.glsl"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/matplotlibrc /home/$name/.config/matplotlib/matplotlibrc"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/spicetify_sleek.ini /home/$name/.config/spicetify/Themes/Sleek/color.ini"
+
 # Install cmus-notify
 # https://github.com/karan/joe get this, is there a package?
