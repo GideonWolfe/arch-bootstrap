@@ -88,6 +88,8 @@ sudo -u "$name" git clone "https://github.com/GideonWolfe/Zathura-Pywal" "/home/
 sh /home/$name/programs/Zathura-Pywal/install.sh
 
 # Gnuplot pywal
+sudo -u "$name" git clone "https://github.com/GideonWolfe/Gnuplot-Pywal" "/home/$name/programs/"
+sh /home/$name/programs/Gnuplot-Pywal/install.sh
 
 # Spicetify: god hopes it actually works
 sudo -u "$name" git clone "https://github.com/morpheusthewhite/spicetify-themes" "/home/$name/programs/"
