@@ -101,7 +101,7 @@ sudo chmod a+wr /opt/spotify/Apps -R
 # actually apply it
 spicetify config current_theme Sleek
 spicetify config color_scheme Pywal
-spotify backup apply
+spicetify backup apply
 
 
 # cmus notify
