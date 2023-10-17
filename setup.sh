@@ -62,7 +62,7 @@ sudo -u "$name" mkdir -p "/home/$name/.local/bin/"
 
 # Install nvim setup
 drawTitle "Downloading NeoVim config"
-sudo -u "$name" git clone https://github.com/GideonWolfe/nvim-lua/ "/home/$name/programs/nvim-lua"
+sudo -u "$name" git clone https://github.com/GideonWolfe/nvim/ "/home/$name/.config/nvim"
 
 # Download wallpapers
 drawTitle "Downloading Wallpapers"
@@ -138,6 +138,7 @@ sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_radial.glsl /home/$name/.con
 sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_wave.glsl /home/$name/.config/glava/wave.glsl"
 sudo -u "$name" ln -s "/home/$name/.cache/wal/matplotlibrc /home/$name/.config/matplotlib/matplotlibrc"
 sudo -u "$name" ln -s "/home/$name/.cache/wal/spicetify_sleek.ini /home/$name/.config/spicetify/Themes/Sleek/color.ini"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/wal_colors.lua /home/$name/.config/nvim/lua/core/chameleon/colors/wal_colors.lua"
 
 # Install cmus-notify
 # https://github.com/karan/joe get this, is there a package?
