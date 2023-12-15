@@ -48,6 +48,11 @@ git clone $dotfilesrepo /home/$name/dotfiles
 drawTitle "Docker Setup"
 usermod -aG docker $name
 
+# Setup Git user
+git config --global user.email "wolfegideon@gmail.com"
+git config --global user.name "Gideon Wolfe"
+git config --global core.excludesFile ~/.config/git/ignore
+
 # Setup permissions
 
 
@@ -139,6 +144,7 @@ sudo -u "$name" ln -s "/home/$name/.cache/wal/glava_wave.glsl /home/$name/.confi
 sudo -u "$name" ln -s "/home/$name/.cache/wal/matplotlibrc /home/$name/.config/matplotlib/matplotlibrc"
 sudo -u "$name" ln -s "/home/$name/.cache/wal/spicetify_sleek.ini /home/$name/.config/spicetify/Themes/Sleek/color.ini"
 sudo -u "$name" ln -s "/home/$name/.cache/wal/wal_colors.lua /home/$name/.config/nvim/lua/core/chameleon/colors/wal_colors.lua"
+sudo -u "$name" ln -s "/home/$name/.cache/wal/colors.css /home/$name/.cache/StartTree/styles/colors.css"
 
 # Install cmus-notify
 # https://github.com/karan/joe get this, is there a package?
