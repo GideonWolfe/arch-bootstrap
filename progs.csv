@@ -179,6 +179,7 @@
 ,texlive-music,"Latex shit"
 ,texlive-humanities,"Latex shit"
 ,texlive-formatsextra,"Latex shit"
+,texlive-binextra,"Latex shit"
 ,texstudio,"GUI LaTeX editor"
 ,thunar,"GUI file manager"
 ,tree,"file tree viewer"
