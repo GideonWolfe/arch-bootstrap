@@ -68,6 +68,11 @@ sudo -u "$name" mkdir -p "/home/$name/documents/"
 sudo -u "$name" mkdir -p "/home/$name/downloads/"
 sudo -u "$name" mkdir -p "/home/$name/.local/bin/"
 
+# Setting default XDG folders
+sudo -u "$name" xdg-user-dirs-update --set DOWNLOAD "/home/$name/downloads"
+sudo -u "$name" xdg-user-dirs-update --set VIDEO "/home/$name/videos"
+sudo -u "$name" xdg-user-dirs-update --set PICTURE "/home/$name/photos"
+
 # Install nvim setup
 drawTitle "Downloading NeoVim config"
 sudo -u "$name" git clone https://github.com/GideonWolfe/nvim/ "/home/$name/.config/nvim"
