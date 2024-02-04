@@ -43,6 +43,9 @@ chsh -s /usr/bin/fish "$name" 2>&1
 # Install dotfiles
 drawTitle "Cloning Dotfiles"
 git clone $dotfilesrepo /home/$name/dotfiles
+drawTitle "Installing Dotfiles"
+dotdrop --cfg=/home/$name/dotfiles/config.yaml install laptop
+
 
 # Setup docker
 drawTitle "Docker Setup"
@@ -124,9 +127,6 @@ cat <<EOT >> /etc/lightdm/slick-greeter.conf
 background=/usr/share/wallpapers/wal
 EOT
 
-
-drawTitle "Installing Dotfiles"
-dotdrop --cfg=/home/$name/dotfiles/config.yaml install laptop
 
 
 # Symlink generated pywal files to their final locations
